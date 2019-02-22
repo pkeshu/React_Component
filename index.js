@@ -1,17 +1,30 @@
-class Item extends React.Component{
-    render(){
-        return(
-            <div>
-                {/* <h1>From item class</h1> */}
-                <p>Titlle: {this.props.title}</p>
-                <p>Year: {this.props.year}</p>
+//stateFull component
+// class Item extends React.Component{
 
-            </div>
+//     render(){
+//         return(
+//             <div>
+//                 {/* <h1>From item class</h1> */}
+//                 <p>Titlle: {this.props.title}</p>
+//                 <p>Year: {this.props.year}</p>
+//                 <p>Genre: {this.props.genre}</p>
 
-        )
-    }
-}
-// ReactDOM.render(<Item title="Leap year" year={2020}/>, document.getElementById('propId'));
+
+
+//             </div>
+
+//         )
+//     }
+// }
+
+// functional component or stateless component
+const Item=(props)=>(
+        <div>
+                <p>Titlle: {props.title}</p>
+                <p>Year: {props.year}</p>
+                <p>Genre: {props.genre}</p>
+            </div>       
+)
 class ReactApp extends React.Component{
     state={
         name:String,
@@ -20,26 +33,26 @@ class ReactApp extends React.Component{
       }
      movies=[
           {
-              title:"Dark Pheonix",year:2019
+              title:"Dark Pheonix",year:2019,genre:"Drama"
           },
           {
-            title:"Avenger End Game",year:2019
+            title:"Avenger End Game",year:2019,genre:"Action"
           },
           {
-            title:"Avengers Infinity war",year:2018
+            title:"Avengers Infinity war",year:2018,genre:"Sci-fi"
           },
           {
-            title:"Thor Ragnorok",year:2018
+            title:"Thor Ragnorok",year:2018,genre:"Action"
           },
           {
-            title:"Bumblee Bee",year:2018
+            title:"Bumblee Bee",year:2018,genre:"Drama"
           }
         ,
         {
-            title:"Mirror",year:2019
+            title:"Mirror",year:2019,genre:"Drama"
           },
           {
-            title:"Captain Marvel",year:2018
+            title:"Captain Marvel",year:2018,genre:"Sci-fi"
           }
       ]
     render(){
@@ -54,8 +67,9 @@ class ReactApp extends React.Component{
             <p>Message from prop is: {this.props.info}</p>
             <h3>List of Movies</h3>
             {
-                this.movies.map(movies=><Item title={movies.title}
-                    year={movies.year}/>)
+                this.movies.map(movie=><Item title={movie.title}
+                    year={movie.year}
+                    genre={movie.genre}/>)
             }
 
             </div>
